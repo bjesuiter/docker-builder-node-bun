@@ -8,14 +8,15 @@
 		"typescript": "^5.0.0"
 	},
 	"config": {
-		"prod_version": "1.3.0"
+		"prod_version": "1.4.0"
 	},
 	"scripts": {
-		"dev": "bun dev-ubuntu-pure",
-		"dev-ubuntu-pure": "bun prod-build-mac && docker run --rm -it bjesuiter/docker-builder-node-bun",
-		"prod-build-mac": "docker build --pull -t bjesuiter/docker-builder-node-bun ./variants/ubuntu-pure ",
+		"dev": "bun build-mac && docker run --rm -it bjesuiter/docker-builder-node-bun",
+		"build-mac": "docker build --pull -t bjesuiter/docker-builder-node-bun ./variants/ubuntu-pure ",
+		"dev-rebuild": "bun prod-build-mac && docker run --rm -it bjesuiter/docker-builder-node-bun",
+		"prod-build-mac": "docker build --no-cache --pull -t bjesuiter/docker-builder-node-bun ./variants/ubuntu-pure ",
 		"prod-push-mac": "docker push bjesuiter/docker-builder-node-bun:latest && docker push bjesuiter/docker-builder-node-bun:$npm_package_config_prod_version",
-		"prod-buildpush-linux": "docker buildx build --platform linux/amd64,linux/arm64,darwin/amd64,darwin/arm64 --pull -t bjesuiter/docker-builder-node-bun:latest -t bjesuiter/docker-builder-node-bun:$npm_package_config_prod_version --push ./variants/ubuntu-pure",
+		"prod-buildpush-linux": "docker buildx build --platform linux/amd64,linux/arm64 --no-cache --pull -t bjesuiter/docker-builder-node-bun:latest -t bjesuiter/docker-builder-node-bun:$npm_package_config_prod_version --push ./variants/ubuntu-pure",
 		"prod-buildpush": "bun prod-build-and-push-linux && bun prod-build-mac && bun prod-push-mac",
 		"echo-prod-version": "echo $npm_package_config_prod_version",
 		"env": "env"
