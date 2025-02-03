@@ -6,6 +6,12 @@ A docker builder imager with node and bun, based on ubuntu
 
 - deployed at: https://hub.docker.com/repository/docker/bjesuiter/docker-builder-node-bun/tags
 
+## First Setup
+
+- bun use-context
+- bun setup-buildx
+- bun rebuild-mac => should go without warnings
+
 ## Deployment of new Image
 
 1. Check Versions of tool in the image: run bun dev-rebuild
