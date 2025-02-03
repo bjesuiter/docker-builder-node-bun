@@ -18,6 +18,8 @@
 		"dev-rebuild": "bun rebuild-mac && docker run --rm -it $npm_package_config_image_name",
 		"prod-buildpush": "docker buildx build --platform linux/amd64,linux/arm64 --no-cache --pull -t $npm_package_config_image_name:latest -t $npm_package_config_image_name:$npm_package_config_prod_version --push ./variants/ubuntu-pure",
 		"echo-package-config": "echo $npm_package_config_image_name:$npm_package_config_prod_version ",
-		"env": "env"
+		"env": "env",
+		"use-context": "docker context use bjesuiter",
+		"setup-buildx": "docker buildx create --name bjesuiter-buildx --use"
 	}
 }
