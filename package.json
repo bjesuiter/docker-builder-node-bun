@@ -9,7 +9,7 @@
 	},
 	"config": {
 		"image_name": "bjesuiter/docker-builder-node-bun",
-		"prod_version": "1.4.0"
+		"prod_version": "1.5.0"
 	},
 	"scripts": {
 		"build-mac": "docker build --pull -t $npm_package_config_image_name ./variants/ubuntu-pure ",
@@ -20,6 +20,6 @@
 		"echo-package-config": "echo $npm_package_config_image_name:$npm_package_config_prod_version ",
 		"env": "env",
 		"use-context": "docker context use bjesuiter",
-		"setup-buildx": "docker buildx create --name bjesuiter-buildx --use"
+		"setup-buildx": "docker buildx create --name bjesuiter-buildx --driver docker-container --bootstrap --use"
 	}
 }

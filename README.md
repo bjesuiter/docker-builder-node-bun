@@ -14,7 +14,7 @@ A docker builder imager with node and bun, based on ubuntu
 
 ## Deployment of new Image
 
-1. Check Versions of tool in the image: run bun dev-rebuild
+1. Check Versions of tool in the image: run `bun dev-rebuild`
    1. bun -v
    2. node -v
    3. git --version
@@ -56,6 +56,11 @@ Step 4: simply add your private image to your job definition in your gilab-ci.ym
 ---
 
 # Changelog
+
+## 1.5.0 - 2025-05-02
+
+- update bun to 1.2.11
+- update node to v22.15.0
 
 ## 1.4.0 - 2025-02-03
 
