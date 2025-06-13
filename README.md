@@ -57,6 +57,12 @@ Step 4: simply add your private image to your job definition in your gilab-ci.ym
 
 # Changelog
 
+## 1.6.0 - 2025-06-13
+
+- update bun to 1.2.16
+- update node to v22.16.0
+- git at version 2.43.0
+
 ## 1.5.0 - 2025-05-02
 
 - update bun to 1.2.11
